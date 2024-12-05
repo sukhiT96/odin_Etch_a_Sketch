@@ -51,6 +51,7 @@ body {
  gap: 0;
  justify-content:left;
  flex: 0;
+ outline: 1px black solid;
 }
 
 .buttons {
@@ -58,4 +59,13 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   gap:10%;
+}
+
+.active {
+  outline:1px black solid;
+}
+
+.randomActive {
+  background-color: green;
+  color: white;
 }

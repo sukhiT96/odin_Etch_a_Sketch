@@ -6,7 +6,6 @@ let gridInput = document.querySelector("#userGridSelection");
 
 function gridCreator () {
   function gridValue () {
-    console.log(gridInput.value);
     return gridInput.value;
   };
 
@@ -17,11 +16,12 @@ function gridCreator () {
   function renderGrid () {
     for (let i = 0; i < noOfSquares; i ++) {
       const paintingDivs = document.createElement("div");
-      paintingDivs.setAttribute(`style`, `height: ${height}%; aspect-ratio: 1; border: 0; flex: 1 1 0; outline: 1px black solid`);
-      paintingDivs.setAttribute("class", "squares");
+      paintingDivs.setAttribute(`style`, `height: ${height}%; aspect-ratio: 1; border: 0px black solid; flex: 1 1 0; backgroundColor: transparent; opacity: 0.5`);
+      paintingDivs.classList.add("squares", "active");
       paintingDivs.addEventListener("click", (e) => {
         e.target.style.backgroundColor = `${color()}`;
       })
+      paintingDivs.set
       grid.appendChild(paintingDivs);
     };
   };
@@ -34,10 +34,23 @@ gridCreator();
 gridInput.addEventListener("click", () => {
   for (let i = grid.childElementCount; i >0; i--) {
     grid.removeChild(grid.firstChild);
-    console.log("i worked");
   };
 
   gridCreator();
+});
+
+const outlineToggle = document.querySelector("#toggleGridlines");
+
+
+
+
+let outline = true;
+
+outlineToggle.addEventListener("click", () => {
+  const outlineItems = document.querySelectorAll(".squares"); // Move inside to get updated list
+  outlineItems.forEach(item => {
+    item.classList.toggle("active");
+  });
 });
 
 let randomMode = false;
@@ -46,7 +59,7 @@ const randomColorButton = document.querySelector("#randomColorMode");
 
 randomColorButton.addEventListener("click", () => {
   randomMode=!randomMode;
-  console.log(randomMode);
+  randomColorButton.classList.toggle("randomActive");
   return randomMode;
 });
 
@@ -68,6 +81,7 @@ let color = function () {
   let colorValue;
   if (randomMode) {
     colorValue = randomHex();
+
   } else {
     const colorInputButton = document.querySelector("#userColorSelection");
     colorValue = colorInputButton.value;
@@ -81,6 +95,31 @@ let color = function () {
 };
 
 const gridSquares = document.querySelectorAll(".squares");
+
+grid.addEventListener("mouseover", (e) => {
+  e.target.style.backgroundColor = color();
+  if (e.target.style.opacity < 1) {
+    e.target.style.opacity = 1.1 * (e.target.style.opacity);  
+  } else {e.target.style.opacity = 1;};
+});
+
+
+const erase = document.querySelector("#reset");
+
+erase.addEventListener("click", () => {
+  for (let i = grid.childElementCount; i >0; i--) {
+    grid.removeChild(grid.firstChild);
+  };
+
+  gridCreator();  
+})
+
+
+
+// grid.addEventListener("mouseout", (e) => {
+//   e.target.style.backgroundColor = "initial";
+// });
+
 
 // gridSquares.forEach()
 

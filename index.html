@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make a Sketch</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="header">Etch A Sketch</div>
+  <div class="middle">
+    <div class="buttons">
+      <div id="gridRange">
+        <input type="range" name="userGridSelection" min="10" max="100" step="1" id="userGridSelection">
+          <label for="userGridSelection" >Grid Size</label>
+      </div>
+      <div id="colors">
+        <p>Select brush color or random mode:</p>
+        <input type="color" id="userColorSelection" name="userColorSelection" value="#000000">
+          <label for="userColorButton">Your Color</label>
+        <button id="randomColorMode">Random Color Mode</button>
+      </div>
+      
+      <button id="toggleGridlines">Hide/Show Gridlines</button>
+      <button id="reset">Erase</button>
+    </div>
+    <div class="main">
+      <div id="grid"></div>
+    </div>
+  </div>
+  <div class="footer">Footer</div>
+  
+</body>
+</html>

@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  gap:1%;
+  margin: 0;
+}
+
+.header {
+  max-height: 9%;
+  min-height: 9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  max-height: 4%;
+  min-height: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.middle {
+  display: flex;
+  max-height: 79%;
+  min-height: 79%;
+}
+
+.buttons {
+  max-width: 33%;
+  min-width: 33%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 67%;
+  max-width: 67%;
+}
+#grid {
+ min-width: 60%;
+ max-width: 60%;
+ aspect-ratio: 1;
+ display: flex; 
+ flex-wrap: wrap;
+ gap: 0;
+ justify-content:left;
+ flex: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap:10%;
+}
